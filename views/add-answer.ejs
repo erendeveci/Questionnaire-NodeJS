@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link href="../css/bootstrap.css" rel="stylesheet" />
+    <link href="../css/bootstrap-theme.css" rel="stylesheet" />
+    <!-- JQUERY-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <!-- INPUT MASK-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.inputmask/3.3.3/jquery.inputmask.bundle.min.js"></script>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title><%=title %> </title>
+
+    <script>
+      $(document).ready(function () {
+        $(":input").inputmask();
+      });
+    </script>
+  </head>
+  <body>
+    <div class="container">
+      <br />
+      <p style="color: red"><%=info %></p>
+
+      <h2>Questionnaire</h2>
+      <a href="/">Show List</a>
+      <form action="add-answer" method="post">
+        <div class="form-group">
+          <label for="text">Name</label>
+          <input
+            type="text"
+            class="form-control"
+            placeholder="Enter name "
+            name="studentName"
+            required
+          />
+        </div>
+        <div class="form-group">
+          <label for="text">Surname</label>
+          <input
+            type="text"
+            class="form-control"
+            id="pwd"
+            placeholder="Enter surname"
+            name="studentSurname"
+            required
+          />
+        </div>
+
+        <div class="form-group">
+          <label for="text">Phone Number</label>
+          <input
+            name="studentPhone"
+            type="text"
+            data-masked=""
+            data-inputmask="'mask': '9999999999'"
+            placeholder="Enter Phone Number"
+            class="form-control"
+            required
+          />
+        </div>
+        <br />
+        <label for="text">Select Country</label>
+        <select class="form-select" id="sel1" name="studentSelect" required>
+          <% for(let item of country) {%>
+          <option value=<%=item.idCountry %>><%=item.countryName %></option>
+        
+        <% } %>
+      </select>
+        <br />
+
+        <button type="submit" class="btn btn-primary">Send</button>
+      </form>
+    </div>
+  </body>
+</html>

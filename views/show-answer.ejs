@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
+  <head>
+    <title><%=title %> </title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link href="css/bootstrap.css" rel="stylesheet" />
+    <link href="css/bootstrap-theme.css" rel="stylesheet" />
+  </head>
+  <body>
+    <div class="container mt-3">
+      <h2>Results</h2>
+      <a href="admin/add-answer">Add answer</a><br>
+     
+      <table class="table">
+        <thead>
+          <tr>
+            <th>#id</th>
+
+            <th>Name</th>
+            <th>Surname</th>
+            <th>Phone</th>
+            <th>Country</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% 
+          let selectNumber =0;
+          for(let student of students) {
+            selectNumber++;
+            console.log(selectNumber);
+            %>
+
+          <tr>
+            <td><%=student.id %></td>
+            <td><%=student.name %></td>
+            <td><%=student.surname %></td>
+            <td><%=student.phone %></td>
+            <td><%=student.countryName %></td>
+          </tr>
+          <% } %>
+        </tbody>
+      </table>
+
+      <br>
+
+     
+ 
+
+
+    </div>
+  </body>
+</html>
